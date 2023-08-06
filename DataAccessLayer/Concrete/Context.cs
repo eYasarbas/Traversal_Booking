@@ -16,7 +16,7 @@ namespace DataAccessLayer.Concrete
         DbSet<About> Abouts { get; set; }
         DbSet<About2> Abouts2 { get; set; }
         DbSet<Contact> Contacts { get; set; }
-        DbSet<Destination> Destinations { get; set; }
+        private DbSet<Destination> Destinations { get; set; }
         DbSet<Feature> Features { get; set; }
         DbSet<Feature2> Features2 { get; set; }
         DbSet<Guide> Guides { get; set; }
