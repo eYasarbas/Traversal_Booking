@@ -6,7 +6,7 @@ namespace Traversal_Booking.ViewComponents.Default
 {
     public class _Feature1 : ViewComponent
     {
-        Feature1Manager feature1Manager = 
+        Feature1Manager feature1Manager =
             new Feature1Manager(new EfFeatureDal());
         public IViewComponentResult Invoke()
         {

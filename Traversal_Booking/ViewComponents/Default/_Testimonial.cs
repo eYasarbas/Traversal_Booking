@@ -4,14 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Traversal_Booking.ViewComponents.Default
 {
-    public class _PopularDestinations : ViewComponent
+    public class _Testimonial :ViewComponent
     {
-        DestinationManager destinationManager = new DestinationManager(
-            new EfDestinationDal());
+        TestimonialManager testimonialManager =
+            new TestimonialManager(new EfTestimonalDal());
         public IViewComponentResult Invoke()
         {
-            var values = destinationManager.TGetList();
+            var values = testimonialManager.TGetList();
             return View(values);
         }
+
     }
 }
