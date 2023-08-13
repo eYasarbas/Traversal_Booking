@@ -23,6 +23,7 @@ namespace DataAccessLayer.Concrete
         DbSet<NewsLetter> NewsLetter { get; set; }
         DbSet<SubAbout> SubAbout { get; set; }
         DbSet<Testimonal> Tests { get; set; }
+        DbSet<Comment> Comments { get; set; }
 
         #endregion
     }
