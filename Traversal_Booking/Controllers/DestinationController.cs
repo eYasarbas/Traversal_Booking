@@ -17,6 +17,7 @@ namespace Traversal_Booking.Controllers
         [HttpGet]
         public IActionResult DestinationDetails(int id)
         {
+            ViewBag.Id = id;
             var values = destinationManager.TGetById(id);
             return View(values);
         }

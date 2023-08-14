@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Traversal_Booking.ViewComponents.Default
 {
-    public class _Testimonial :ViewComponent
+    public class _Testimonial : ViewComponent
     {
         TestimonialManager testimonialManager =
             new TestimonialManager(new EfTestimonalDal());
