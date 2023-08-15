@@ -2,7 +2,7 @@
 
 namespace BusinessLayer.Abstract
 {
-    public interface ITestimonalService : IGenericService<Testimonal>
-    {
-    }
+	public interface ITestimonalService : IGenericService<Testimonal>
+	{
+	}
 }

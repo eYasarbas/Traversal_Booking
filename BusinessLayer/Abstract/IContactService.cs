@@ -2,7 +2,7 @@
 
 namespace BusinessLayer.Abstract
 {
-    public interface IContactService : IGenericService<Contact>
-    {
-    }
+	public interface IContactService : IGenericService<Contact>
+	{
+	}
 }

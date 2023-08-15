@@ -4,8 +4,8 @@ using EntityLayer.Concrete;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EfDestinationDal : GenericRepository<Destination>, IDestinationDal
-    {
+	public class EfDestinationDal : GenericRepository<Destination>, IDestinationDal
+	{
 
-    }
+	}
 }

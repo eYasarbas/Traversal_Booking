@@ -2,7 +2,7 @@
 
 namespace DataAccessLayer.Abstract
 {
-    public interface ISubAboutDal : IGenericDal<SubAbout>
-    {
-    }
+	public interface ISubAboutDal : IGenericDal<SubAbout>
+	{
+	}
 }
