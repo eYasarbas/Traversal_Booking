@@ -1,59 +1,112 @@
-﻿
-@{
-    Layout = null;
-}
-
+﻿@model Traversal_Booking.Models.UserRegisterViewModel
 <!DOCTYPE html>
-<html>
+<html lang="zxx">
+
 <head>
-	<meta charset="utf-8">
-	<title>Traversal User Sign</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Invent Signup Form Responsive Widget Template | Home :: W3layouts</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords"
+		  content="Invent Signup Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
 
-	<!-- LINEARICONS -->
-	<link rel="stylesheet" href="/colorlib-regform-26/fonts/linearicons/style.css">
-
-	<!-- STYLE CSS -->
-	<link rel="stylesheet" href="/colorlib-regform-26/css/style.css">
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta tag Keywords -->
+	<!--/Style-CSS -->
+	<link rel="stylesheet" href="~/web/css/style.css" type="text/css" media="all" />
+	<!--//Style-CSS -->
 </head>
 
 <body>
+	<!-- /login-section -->
+	<section class="w3l-login-6">
+		<div class="login-hny">
+			<div class="form-content">
+				<div class="form-right">
+					<div class="overlay">
+						<div class="grid-info-form">
+							<h5>Say hello</h5>
+							<h3>CREATE ACCOUNT </h3>
+							<p>
+								Let's take your travel experiences to the next level! 
+								Take advantage of our wide range of travel options and discover
+								accommodation and activities at the best prices. Register now 
+								to make unforgettable memories and discover new places!
+							</p>
+							<a href="/web/index.html" class="read-more-1 btn">Get Started</a>
+						</div>
 
-	<div class="wrapper">
-		<div class="inner">
-			<img src="/colorlib-regform-26/images/image-1.png" alt="" class="image-1">
-			<form action="">
-				<h3>New Account?</h3>
-				<div class="form-holder">
-					<span class="lnr lnr-user"></span>
-					<input type="text" class="form-control" placeholder="Username">
+					</div>
 				</div>
-				<div class="form-holder">
-					<span class="lnr lnr-phone-handset"></span>
-					<input type="text" class="form-control" placeholder="Phone Number">
+				<div class="form-left">
+					<div class="middle">
+						<h4>Join Us</h4>
+						<p>Create Your Account, It's Free.</p>
+					</div>
+					<form  method="post" class="signin-form">
+						<div class="form-input">
+							<label>Name</label>
+							<input type="text"  asp-for="Name" />
+							<span asp-validation-for="Name" class="text-danger"></span>
+
+						</div><div class="form-input">
+							<label>SurName</label>
+							<input type="text"  asp-for="SurName" />
+							<span asp-validation-for="SurName" class="text-danger"></span>
+
+
+						</div><div class="form-input">
+							<label>UserName</label>
+							<input type="text"  asp-for="UserName" />
+						</div>
+						<span asp-validation-for="UserName" class="text-danger"></span>
+
+
+						<div class="form-input">
+							<label>Mail</label>
+							<input type="text" asp-for="Mail"  />
+						</div>
+						<span asp-validation-for="Mail" class="text-danger"></span>
+
+						<div class="form-input">
+							<label>Password</label>
+							<input type="password" asp-for="Password" />
+						</div>
+						<span asp-validation-for="Password" class="text-danger"></span>
+
+						<div class="form-input">
+							<label>ConfirmPassword</label>
+							<input type="password" asp-for="ConfirmPassword"  />
+						</div>
+						<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+						<div asp-validation-summary="ModelOnly" class="test-danger"></div>
+						<label class="container">
+							I agree to <a href="#">Conditions</a>
+							<input type="checkbox">
+							<span class="checkmark"></span>
+						</label>
+						<button class="btn">Create account</button>
+					</form>
+					<div class="copy-right text-center">
+						<p>
+							© @DateTime.Now.Year All rights reserved | Design by Enes Yaşarbaş
+						
+						</p>
+					</div>
 				</div>
-				<div class="form-holder">
-					<span class="lnr lnr-map"></span>
-					<input type="text" class="form-control" placeholder="Mail">
-				</div>
-				<div class="form-holder">
-					<span class="lnr lnr-keyboard"></span>
-					<input type="password" class="form-control" placeholder="Password">
-				</div>
-				<div class="form-holder">
-					<span class="lnr lnr-keyboard"></span>
-					<input type="password" class="form-control" placeholder="Confirm Password">
-				</div>
-				<button>
-					<span>Register</span>
-				</button>
-			</form>
-			<img src="/colorlib-regform-26/images/image-2.png" alt="" class="image-2">
+
+			</div>
+
 		</div>
+	</section>
+	<!-- //login-section -->
+</body>
 
-	</div>
-
-	<script src="/colorlib-regform-26/js/jquery-3.3.1.min.js"></script>
-	<script src="/colorlib-regform-26/js/main.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

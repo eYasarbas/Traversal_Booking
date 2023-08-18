@@ -41,11 +41,11 @@ namespace Traversal_Booking.Controllers
 
 				else
 				{
-                    foreach (var item in result.Errors)
-                    {
-						ModelState.AddModelError("",item.Description);
-                    }
-                }
+					foreach (var item in result.Errors)
+					{
+						ModelState.AddModelError("", item.Description);
+					}
+				}
 			}
 
 			return View(userRegister);

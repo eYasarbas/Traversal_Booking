@@ -9,10 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
-builder.Services.AddMvc(config =>
+builder.Services.AddControllersWithViews(opt =>
 {
-	var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-	config.Filters.Add(new AuthorizeFilter(policy));
+	var policy = new AuthorizationPolicyBuilder()
+	.RequireAuthenticatedUser()
+	.Build();
+	opt.Filters.Add(new AuthorizeFilter(policy));
 });
 
 builder.Services.AddMvc();

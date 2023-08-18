@@ -24,5 +24,6 @@ namespace Traversal_Booking.Models
 		[Compare("Password", ErrorMessage = "Password is no   t same")]
 		public string ConfirmPassword { get; set; }
 
+
 	}
 }
