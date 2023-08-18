@@ -2,7 +2,7 @@
 
 namespace BusinessLayer.Abstract
 {
-	public interface INewsLetter : IGenericService<NewsLetter>
-	{
-	}
+    public interface INewsLetter : IGenericService<NewsLetter>
+    {
+    }
 }

@@ -4,7 +4,7 @@ using EntityLayer.Concrete;
 
 namespace DataAccessLayer.EntityFramework
 {
-	public class EfFeatureDal : GenericRepository<Feature>, IFeatureDal
-	{
-	}
+    public class EfFeatureDal : GenericRepository<Feature>, IFeatureDal
+    {
+    }
 }

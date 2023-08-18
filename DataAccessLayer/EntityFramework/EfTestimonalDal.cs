@@ -4,8 +4,8 @@ using EntityLayer.Concrete;
 
 namespace DataAccessLayer.EntityFramework
 {
-	public class EfTestimonalDal : GenericRepository<Testimonal>, ITestimonalDal
-	{
-	}
+    public class EfTestimonalDal : GenericRepository<Testimonal>, ITestimonalDal
+    {
+    }
 
 }

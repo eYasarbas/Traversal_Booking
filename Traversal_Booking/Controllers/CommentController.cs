@@ -5,23 +5,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Traversal_Booking.Controllers
 {
-	public class CommentController : Controller
-	{
-		CommentManager commentManager = new CommentManager(new EfCommentDal());
-		[HttpGet]
-		public PartialViewResult AddComment()
-		{
-			return PartialView();
-		}
+    public class CommentController : Controller
+    {
+        CommentManager commentManager = new CommentManager(new EfCommentDal());
+        [HttpGet]
+        public PartialViewResult AddComment()
+        {
+            return PartialView();
+        }
 
-		[HttpPost]
-		public IActionResult AddComment(Comment comment)
-		{
+        [HttpPost]
+        public IActionResult AddComment(Comment comment)
+        {
 
-			comment.CommentDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-			comment.CommentState = "true";
-			commentManager.TAdd(comment);
-			return RedirectToAction("Index", "DEstination");
-		}
-	}
+            comment.CommentDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            comment.CommentState = "true";
+            commentManager.TAdd(comment);
+            return RedirectToAction("Index", "DEstination");
+        }
+    }
 }
