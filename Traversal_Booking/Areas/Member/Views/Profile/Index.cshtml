@@ -1,0 +1,42 @@
+﻿@model Traversal_Booking.Areas.Member.Models.UserEditViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile Page</title>
+</head>
+<body>
+    <h1>Edit Your Profile</h1>
+    <form action="/Member/UpdateProfile" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" required><br><br>
+
+        <label for="yourAbout">About You:</label><br>
+        <textarea id="yourAbout" name="yourAbout" rows="4" cols="50"></textarea><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="confirmpassword">Confirm Password:</label>
+        <input type="password" id="confirmpassword" name="confirmpassword" required><br><br>
+
+        <label for="imageUrl">Profile Image URL:</label>
+        <input type="text" id="imageUrl" name="imageUrl"><br><br>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber"><br><br>
+
+        <label for="mail">Email:</label>
+        <input type="email" id="mail" name="mail" required><br><br>
+
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>
+

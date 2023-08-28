@@ -17,7 +17,6 @@ builder.Services.AddControllersWithViews(opt =>
     opt.Filters.Add(new AuthorizeFilter(policy));
 });
 
-builder.Services.AddMvc();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
