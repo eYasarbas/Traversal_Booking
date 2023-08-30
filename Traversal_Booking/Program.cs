@@ -6,10 +6,13 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+//builder.Services.AddControllersWithViews();
+// Hizmetleri yapýlandýrma
 builder.Services.AddDbContext<Context>();
-builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
-builder.Services.AddControllersWithViews(opt =>
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>(); // Kimlik hizmetlerini veritabaný baðlamýyla iliþkilendirme
+builder.Services.AddControllersWithViews();
+builder.Services.AddMvc
+ (opt =>
 {
     var policy = new AuthorizationPolicyBuilder()
     .RequireAuthenticatedUser()
@@ -31,7 +34,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseRouting();
-
 app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
