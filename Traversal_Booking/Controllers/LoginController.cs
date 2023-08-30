@@ -59,21 +59,41 @@ namespace Traversal_Booking.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> SignIn(UserRegisterViewModel userRegister)
+        public async Task<IActionResult> SignIn(UserSignInViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(
-                    userRegister.UserName, userRegister.Password, false, true
-                    );
-                if (result.Succeeded)
+                var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, true);
+
+                if (result != null)
                 {
-                    return RedirectToAction("Index", "Profile", new { area = "Member" });
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index", "Profile", new { area = "Member" });
+                    }
+                    else if (result.IsLockedOut)
+                    {
+                        ModelState.AddModelError("", "Account is locked out.");
+                    }
+                    else if (result.IsNotAllowed)
+                    {
+                        ModelState.AddModelError("", "User is not allowed to sign in.");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Invalid login attempt.");
+                    }
+                    return RedirectToAction(nameof(SignIn));
                 }
                 else
                 {
-                    return RedirectToAction("SıgnIn", "Login");
+                    ModelState.AddModelError("", "An error occurred while signing in.");
+                    return View();
                 }
+
+
+
+
             }
             return View();
         }
