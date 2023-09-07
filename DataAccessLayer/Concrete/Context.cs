@@ -25,6 +25,7 @@ namespace DataAccessLayer.Concrete
         DbSet<SubAbout> SubAbout { get; set; }
         DbSet<Testimonal> Tests { get; set; }
         DbSet<Comment> Comments { get; set; }
+        DbSet<Reservation> Reservations { get; set; }
 
         #endregion
     }

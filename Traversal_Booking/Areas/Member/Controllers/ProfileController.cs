@@ -26,7 +26,7 @@ namespace Traversal_Booking.Areas.Member.Controllers
 
             UserEditViewModel userEditViewModel = new UserEditViewModel();
             userEditViewModel.name = "Defaultname";
-            userEditViewModel.surname = "DEfaultsurname";
+            userEditViewModel.surname = "Defaultsurname";
             userEditViewModel.phoneNumber = "324r3245245";
             userEditViewModel.mail = "sdsas.gmail.com";
             // Varsayılan olarak AppUser nesnesinde Name özelliği yoksa burada hata alırsınız.
