@@ -11,10 +11,8 @@ namespace Traversal_Booking.Areas.Member.Controllers
     [AllowAnonymous]
     public class ReservationController : Controller
     {
-
-
-        DestinationManager destinationManager = new DestinationManager(new EfDestinationDal());
-        ReservationManager reservationManager = new ReservationManager(new EfReservationDal());
+        DestinationManager _destinationManager = new(new EfDestinationDal());
+        ReservationManager _reservationManager = new(new EfReservationDal());
         public IActionResult MyCurrentReservation()
         {
             return View();
@@ -27,22 +25,36 @@ namespace Traversal_Booking.Areas.Member.Controllers
         [HttpGet]
         public IActionResult NewReservation()
         {
-            List<SelectListItem> values = (from x in destinationManager.TGetList()
-                                           select new SelectListItem
-                                           {
-                                               Text = x.Ctiy,
-                                               Value = x.DestinationID.ToString(),
-                                           }
-                                           ).ToList();
-            ViewBag.v = values;
+            List<SelectListItem> values = _destinationManager.TGetList().Select(x => new SelectListItem
+            {
+                Text = x.Ctiy,
+                Value = x.DestinationID.ToString(),
+            }).ToList();
+
+            ViewData["Destination"] = values;
+
             return View();
         }
+
+
         [HttpPost]
         public IActionResult NewReservation(Reservation reservation)
         {
-            reservation.AppUserID = 9;
-            reservationManager.TAdd(reservation);
+            if (!ModelState.IsValid)
+            {
+                List<string> errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+                ViewBag.Errors = errors;
+
+                return View();
+            }
+
+            reservation.AppUserId = 9;
+            reservation.Status = "Wait Check";
+            _reservationManager.TAdd(reservation);
+
             return RedirectToAction(nameof(MyCurrentReservation));
+
         }
+
     }
 }
