@@ -10,7 +10,7 @@ namespace DataAccessLayer.Concrete
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-O5D1DR7;database=TraversalDB;integrated security=true;Encrypt=False;");
+            optionsBuilder.UseSqlServer("server=DESKTOP-O5D1DR7;database=TraversalDB2;integrated security=true;Encrypt=False;");
         }
 
         #region DBSet include

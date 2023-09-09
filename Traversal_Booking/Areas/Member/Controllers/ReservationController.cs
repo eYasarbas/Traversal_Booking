@@ -25,13 +25,15 @@ namespace Traversal_Booking.Areas.Member.Controllers
         [HttpGet]
         public IActionResult NewReservation()
         {
-            List<SelectListItem> values = _destinationManager.TGetList().Select(x => new SelectListItem
-            {
-                Text = x.Ctiy,
-                Value = x.DestinationID.ToString(),
-            }).ToList();
+            List<SelectListItem> values = (from x in _destinationManager.TGetList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.Ctiy,
+                                               Value = x.DestinationID.ToString()
+                                           }
+                        ).ToList();
 
-            ViewData["Destination"] = values;
+            ViewBag.v = values;
 
             return View();
         }
@@ -40,15 +42,15 @@ namespace Traversal_Booking.Areas.Member.Controllers
         [HttpPost]
         public IActionResult NewReservation(Reservation reservation)
         {
-            if (!ModelState.IsValid)
-            {
-                List<string> errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
-                ViewBag.Errors = errors;
+            //if (!ModelState.IsValid)
+            //{
+            //    List<string> errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+            //    ViewBag.Errors = errors;
 
-                return View();
-            }
+            //    return View();
+            //}
 
-            reservation.AppUserId = 9;
+            reservation.AppUserId = 1;
             reservation.Status = "Wait Check";
             _reservationManager.TAdd(reservation);
 
