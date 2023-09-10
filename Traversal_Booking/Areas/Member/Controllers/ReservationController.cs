@@ -1,16 +1,17 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Traversal_Booking.Areas.Member.Controllers
 {
     [Area("Member")]
-    [AllowAnonymous]
     public class ReservationController : Controller
     {
+        [BindProperty]
+        public Reservation Reservation { get; set; }
+
         DestinationManager _destinationManager = new(new EfDestinationDal());
         ReservationManager _reservationManager = new(new EfReservationDal());
         public IActionResult MyCurrentReservation()
@@ -33,7 +34,7 @@ namespace Traversal_Booking.Areas.Member.Controllers
                                            }
                         ).ToList();
 
-            ViewBag.v = values;
+            ViewBag.Destination = values;
 
             return View();
         }
@@ -42,18 +43,18 @@ namespace Traversal_Booking.Areas.Member.Controllers
         [HttpPost]
         public IActionResult NewReservation(Reservation reservation)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    List<string> errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
-            //    ViewBag.Errors = errors;
 
-            //    return View();
-            //}
 
-            reservation.AppUserId = 1;
-            reservation.Status = "Wait Check";
-            _reservationManager.TAdd(reservation);
+            Reservation.AppUserId = 1;
+            Reservation.Status = "Wait Check";
+            _reservationManager.TAdd(Reservation);
+            if (!ModelState.IsValid)
+            {
+                List<string> errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+                ViewBag.Errors = errors;
 
+                return View();
+            }
             return RedirectToAction(nameof(MyCurrentReservation));
 
         }
