@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
 {
@@ -26,6 +27,16 @@ namespace BusinessLayer.Concrete
         public Reservation TGetById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Reservation> GetByFilter(Expression<Func<Reservation, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Reservation> GetListApprovalReservations(int id)
+        {
+            return _reservationDal.GetListByFilter(x => x.AppUserId == id && x.Status.Equals("Beklemede"));
         }
 
         public List<Reservation> TGetList()

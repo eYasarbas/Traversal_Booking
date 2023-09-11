@@ -4,8 +4,7 @@ namespace EntityLayer.Concrete
 {
     public class Destination
     {
-        [Key]
-        public int DestinationID { get; set; }
+        [Key] public int DestinationID { get; set; }
         public string Ctiy { get; set; }
         public string DayNight { get; set; }
         public double Price { get; set; }
@@ -18,5 +17,6 @@ namespace EntityLayer.Concrete
         public string Details2 { get; set; }
         public string Image2 { get; set; }
         public List<Comment> Comments { get; set; }
+        public List<Reservation> Reservations { get; set; }
     }
 }

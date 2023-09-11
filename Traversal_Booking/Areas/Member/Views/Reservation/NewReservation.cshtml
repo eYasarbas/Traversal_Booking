@@ -5,11 +5,11 @@
 }
 <h1>New Reservation Page</h1>
 <form method="post" action="/Member/Reservation/NewReservation">
-    <div class="form-group">
+  @*   <div class="form-group">
         @Html.Label("Location")
         @Html.DropDownListFor(x => x.Destination, (List<SelectListItem>)ViewBag.Destination,
             new { @class = "form-control" })
-    </div>
+    </div> *@
     <div class="form-group">
         <label asp-for="PersonCount">Person Count</label>
         <input type="text" asp-for="PersonCount" class="form-control"/>

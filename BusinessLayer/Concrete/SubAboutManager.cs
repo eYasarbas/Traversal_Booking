@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
 {
@@ -27,6 +28,11 @@ namespace BusinessLayer.Concrete
         }
 
         public SubAbout TGetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<SubAbout> GetByFilter(Expression<Func<SubAbout, bool>> filter)
         {
             throw new NotImplementedException();
         }

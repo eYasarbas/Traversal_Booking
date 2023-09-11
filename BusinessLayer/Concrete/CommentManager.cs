@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
 {
@@ -24,6 +25,11 @@ namespace BusinessLayer.Concrete
         }
 
         public Comment TGetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Comment> GetByFilter(Expression<Func<Comment, bool>> filter)
         {
             throw new NotImplementedException();
         }
