@@ -3,6 +3,7 @@
     ViewData["Title"] = "MyOldReservation";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+<h1> Previous Reservation</h1>
 
-<h1>MyOldReservation</h1>
+@await Html.PartialAsync("~/Areas/Member/Views/Reservation/Table_Default.cshtml")
 

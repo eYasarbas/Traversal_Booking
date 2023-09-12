@@ -14,18 +14,18 @@ namespace DataAccessLayer.Concrete
         }
 
         #region DBSet include
-        DbSet<About> Abouts { get; set; }
-        DbSet<About2> Abouts2 { get; set; }
-        DbSet<Contact> Contacts { get; set; }
-        DbSet<Destination> Destinations { get; set; }
-        DbSet<Feature> Features { get; set; }
-        DbSet<Feature2> Features2 { get; set; }
-        DbSet<Guide> Guides { get; set; }
-        DbSet<NewsLetter> NewsLetter { get; set; }
-        DbSet<SubAbout> SubAbout { get; set; }
-        DbSet<Testimonal> Tests { get; set; }
-        DbSet<Comment> Comments { get; set; }
-        DbSet<Reservation> Reservations { get; set; }
+        public DbSet<About> Abouts { get; set; }
+        public DbSet<About2> Abouts2 { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Destination> Destinations { get; set; }
+        public DbSet<Feature> Features { get; set; }
+        public DbSet<Feature2> Features2 { get; set; }
+        public DbSet<Guide> Guides { get; set; }
+        public DbSet<NewsLetter> NewsLetter { get; set; }
+        public DbSet<SubAbout> SubAbout { get; set; }
+        public DbSet<Testimonal> Tests { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
         #endregion
     }
