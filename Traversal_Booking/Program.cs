@@ -15,11 +15,11 @@ builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Contex
 // Kimlik hizmetlerini veritabaný baðlamýyla iliþkilendirme
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc
- (opt =>
+(opt =>
 {
     var policy = new AuthorizationPolicyBuilder()
-    .RequireAuthenticatedUser()
-    .Build();
+        .RequireAuthenticatedUser()
+        .Build();
     opt.Filters.Add(new AuthorizeFilter(policy));
 });
 
@@ -39,13 +39,13 @@ app.UseAuthentication();
 app.UseRouting();
 app.UseAuthorization();
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    "default",
+    "{controller=Home}/{action=Index}/{id?}");
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
-      name: "areas",
-      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+        "areas",
+        "{area:exists}/{controller=Home}/{action=Index}/{id?}"
     );
 });
 app.Run();
