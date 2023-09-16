@@ -48,4 +48,12 @@ app.UseEndpoints(endpoints =>
         "{area:exists}/{controller=Home}/{action=Index}/{id?}"
     );
 });
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        "areas",
+        "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
+});
 app.Run();
