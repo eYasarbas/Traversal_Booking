@@ -8,7 +8,7 @@ namespace Traversal_Booking.Areas.Admin.Controllers;
 [Area("Admin")]
 public class DestinationController : Controller
 {
-    DestinationManager _destinationManager = new(new EfDestinationDal());
+    private readonly DestinationManager _destinationManager = new(new EfDestinationDal());
 
 
     public IActionResult Index()
