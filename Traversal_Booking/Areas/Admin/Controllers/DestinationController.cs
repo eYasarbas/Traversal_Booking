@@ -11,7 +11,6 @@ public class DestinationController : Controller
     DestinationManager _destinationManager = new(new EfDestinationDal());
 
 
-
     public IActionResult Index()
     {
         var values = _destinationManager.TGetList();
@@ -31,10 +30,9 @@ public class DestinationController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    [HttpPost]
     public IActionResult DeleteDestination(int id)
     {
-        var values = _destinationManager.GetById(id);
+        var values = _destinationManager.TGetById(id);
         _destinationManager.TDelete(values);
         return RedirectToAction(nameof(Index));
     }
@@ -42,7 +40,7 @@ public class DestinationController : Controller
     [HttpGet]
     public IActionResult UpdateDestination(int id)
     {
-        var values = _destinationManager.GetById(id);
+        var values = _destinationManager.TGetById(id);
 
         return View(values);
     }

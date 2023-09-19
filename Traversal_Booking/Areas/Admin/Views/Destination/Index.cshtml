@@ -23,9 +23,9 @@
             <td>@item.Ctiy</td>
             <td>@item.Price</td>
             <td>@item.Capacity</td>
-            <td><a href="#" class="btn btn-outline-info"></a>See On Site</td>
-            <td><a href="#" class="btn btn-outline-danger"></a>Delete</td>
-            <td><a href="#" class="btn btn-outline-success"></a>Update</td>
+            <td><a href="/Destination/Details/@item.DestinationID" class="btn btn-outline-info"></a>See On Site</td>
+            <td><a href="/Admin/Destination/DeleteDestination/@item.DestinationID" class="btn btn-outline-danger"></a>Delete</td>
+            <td><a href="/Admin/Destination/UpdateDestination/@item.DestinationID" class="btn btn-outline-success"></a>Update</td>
         </tr>
     }
 </table>

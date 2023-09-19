@@ -35,10 +35,6 @@ public class DestinationManager : IDestinationService
         _destinationDal.Update(item);
     }
 
-    public Destination GetById(int id)
-    {
-        throw new NotImplementedException();
-    }
 
     public Destination TGetById(int id)
     {
