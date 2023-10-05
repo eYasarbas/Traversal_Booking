@@ -18,6 +18,10 @@ builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Contex
     ().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
 builder.Services.AddScoped<ICommentService, CommentManager>();
 builder.Services.AddScoped<ICommentDal, EfCommentDal>();
+builder.Services.AddScoped<IAppUserService, AppUserManager>();
+builder.Services.AddScoped<IAppUserDal, EfAppUserDal>();
+builder.Services.AddScoped<IDestinationService, DestinationManager>();
+builder.Services.AddScoped<IDestinationDal, EfDestinationDal>();
 // Kimlik hizmetlerini veritabaný baðlamýyla iliþkilendirme
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc
