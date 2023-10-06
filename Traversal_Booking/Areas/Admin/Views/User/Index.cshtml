@@ -16,7 +16,7 @@
         <th>Edit</th>
         <th>Comments</th>
         <th>Reservation History</th>
-        
+
 
     </tr>
     @foreach (var item in Model)
@@ -27,12 +27,20 @@
             <td>@item.UserName</td>
             <td>@item.Email</td>
             <td>@item.PhoneNumber</td>
-            <td><a href="/Admin/User/DeleteUser/@item.Id" class="btn btn-outline-danger">Delete</a></td>
-            <td><a href="/Admin/User/EditUser/@item.Id" class="btn btn-outline-success">Edit</a></td>
-            <td><a href="/Admin/User/CommentsUser/@item.Id" class="btn btn-outline-info">Comments</a></td>
-            <td><a href="/Admin/User/ReservationUser/@item.Id" class="btn btn-outline-secondary">Reservation History</a></td>
+            <td>
+                <a href="/Admin/User/DeleteUser/@item.Id" class="btn btn-outline-danger">Delete</a>
+            </td>
+            <td>
+                <a href="/Admin/User/EditUser/@item.Id" class="btn btn-outline-success">Edit</a>
+            </td>
+            <td>
+                <a href="/Admin/User/CommentsUser/@item.Id" class="btn btn-outline-info">Comments</a>
+            </td>
+            <td>
+                <a href="/Admin/User/ReservationUser/@item.Id" class="btn btn-outline-secondary">Reservation History</a>
+            </td>
         </tr>
     }
 </table>
 
-<a href="/Admin/User/AddUser" class="btn btn-outline-primary">New User</a>
+<a href="/Login/SignUp" class="btn btn-outline-primary">New User</a>
