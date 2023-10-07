@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Traversal_Booking.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-BuilderExtensions extensions = new BuilderExtensions();
+var extensions = new BuilderExtensions();
 // Add services to the container.
 //builder.Services.AddControllersWithViews();
 // Hizmetleri yapýlandýrma
@@ -35,6 +35,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code={0}");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthentication();
