@@ -6,15 +6,19 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Traversal_Booking.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-var extensions = new BuilderExtensions();
-// Add services to the container.
-//builder.Services.AddControllersWithViews();
-// Hizmetleri yapýlandýrma
+var path = Directory.GetCurrentDirectory();
+ILoggerFactory loggerFactory = new LoggerFactory();
+loggerFactory.AddFile($"{path}\\Logs\\Log1.txt");
+builder.Services.AddLogging(x =>
+{
+    x.ClearProviders();
+    x.SetMinimumLevel(LogLevel.Debug);
+    x.AddDebug();
+});
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>
     ().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
 BuilderExtensions.ContainerDependencies(builder);
-// Kimlik hizmetlerini veritabaný baðlamýyla iliþkilendirme
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc
 (opt =>
@@ -26,6 +30,7 @@ builder.Services.AddMvc
 });
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

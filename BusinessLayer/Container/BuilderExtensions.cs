@@ -19,5 +19,7 @@ public class BuilderExtensions
         builder.Services.AddScoped<IDestinationDal, EfDestinationDal>();
         builder.Services.AddScoped<IReservationService, ReservationManager>();
         builder.Services.AddScoped<IReservationDal, EfReservationDal>();
+        builder.Services.AddScoped<IGuideService, GuideManager>();
+        builder.Services.AddScoped<IGuideDal, EfGuideDal>();
     }
 }

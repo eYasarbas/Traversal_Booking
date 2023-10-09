@@ -17,6 +17,7 @@ namespace Traversal_Booking.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("Index page call");
             return View();
         }
 
