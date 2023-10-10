@@ -1,8 +1,40 @@
-﻿
+﻿@using EntityLayer.Concrete;
+@model Guide;
+
 @{
     ViewData["Title"] = "AddGuide";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>AddGuide</h1>
+<h1>Create New Guide</h1>
 
+<form method="post">
+
+    <br />
+    <div class="form-group">
+        @Html.Label("Name")
+        <input type="text" asp-for="Name" class="form-control" />
+    </div> <br />
+
+    <div class="form-group">
+        @Html.Label("Guide Photo")
+        <input type="text" asp-for="Image" class="form-control" />
+    </div> <br />
+
+    <div class="form-group">
+        @Html.Label("Instagram URL")
+        <input type="text" asp-for="InstagramUrl" class="form-control" />
+    </div> <br />
+
+    <div class="form-group">
+        @Html.Label("Tweetter URL")
+        <input type="text" asp-for="TwitterUrl" class="form-control" />
+    </div> <br />
+
+    <div class="form-group">
+        @Html.Label("Description")
+        <textarea cols="30" rows="5" asp-for="Description" class="form-control"></textarea>
+    </div> <br />
+    <button class="btn btn-outline-success">Created</button>
+
+</form>

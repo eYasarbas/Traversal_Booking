@@ -7,14 +7,11 @@ using Traversal_Booking.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var path = Directory.GetCurrentDirectory();
-ILoggerFactory loggerFactory = new LoggerFactory();
-loggerFactory.AddFile($"{path}\\Logs\\Log1.txt");
-builder.Services.AddLogging(x =>
-{
-    x.ClearProviders();
-    x.SetMinimumLevel(LogLevel.Debug);
-    x.AddDebug();
-});
+builder.Logging.ClearProviders();
+builder.Logging.AddFile($"{path}\\Logs\\Log1.txt");
+builder.Logging.SetMinimumLevel(LogLevel.Debug);
+builder.Logging.AddDebug();
+
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>
     ().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
