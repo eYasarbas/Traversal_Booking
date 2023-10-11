@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccessLayer.Concrete;
+using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
+using Traversal_Booking.Models;
 
 namespace Traversal_Booking.Controllers
 {
@@ -24,6 +26,22 @@ namespace Traversal_Booking.Controllers
 
                 return File(bytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "dosya1.xlsx");
             }
+
+        }
+        public List<DestinationModel> DestinationLists()
+        {
+            List<DestinationModel> destinationModels = new List<DestinationModel>();
+            using (var c = new Context())
+            {
+                destinationModels = c.Destinations.Select(x => new DestinationModel
+                {
+                    Ctiy = x.Ctiy,
+                    DayNight = x.DayNight,
+                    Price = x.Price,
+                    Capacity = x.Capacity,
+                }).ToList();
+            };
+            return destinationModels;
         }
     }
 }
