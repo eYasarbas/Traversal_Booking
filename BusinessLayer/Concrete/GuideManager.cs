@@ -16,17 +16,17 @@ public class GuideManager : IGuideService
 
     public void TAdd(Guide item)
     {
-        throw new NotImplementedException();
+        _guideDal.Insert(item);
     }
 
     public void TDelete(Guide item)
     {
-        throw new NotImplementedException();
+        _guideDal.Delete(item);
     }
 
     public void TUpdate(Guide item)
     {
-        throw new NotImplementedException();
+        _guideDal.Update(item);
     }
 
     public List<Guide> TGetList()
@@ -36,7 +36,7 @@ public class GuideManager : IGuideService
 
     public Guide TGetById(int id)
     {
-        throw new NotImplementedException();
+        return _guideDal.GetByID(id);
     }
 
     public List<Guide> GetByFilter(Expression<Func<Guide, bool>> filter)

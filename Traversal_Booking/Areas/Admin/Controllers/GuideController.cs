@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.ValidationRules;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,8 +30,16 @@ public class GuideController : Controller
     [HttpPost]
     public IActionResult AddGuide(Guide guide)
     {
-        if (guide == null) _guideService.TAdd(guide);
-        return RedirectToAction(nameof(Index));
+        GuideValidator validationRules = new();
+        var validationResult = validationRules.Validate(guide);
+        if (validationResult.IsValid)
+        {
+            _guideService.TAdd(guide);
+            return RedirectToAction(nameof(Index));
+        }
+
+        foreach (var item in validationResult.Errors) ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+        return View();
     }
 
     [HttpGet]
