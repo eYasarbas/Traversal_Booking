@@ -7,7 +7,7 @@ namespace BusinessLayer.Concrete;
 
 public class GuideManager : IGuideService
 {
-    private IGuideDal _guideDal;
+    private readonly IGuideDal _guideDal;
 
     public GuideManager(IGuideDal guideDal)
     {
