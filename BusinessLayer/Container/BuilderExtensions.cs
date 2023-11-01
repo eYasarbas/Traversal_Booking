@@ -21,5 +21,6 @@ public class BuilderExtensions
         builder.Services.AddScoped<IReservationDal, EfReservationDal>();
         builder.Services.AddScoped<IGuideService, GuideManager>();
         builder.Services.AddScoped<IGuideDal, EfGuideDal>();
+        builder.Services.AddScoped<IExcelService, ExcelManager>();
     }
 }

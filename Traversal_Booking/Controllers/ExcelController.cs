@@ -1,13 +1,20 @@
-﻿using ClosedXML.Excel;
+﻿using BusinessLayer.Abstract;
+using ClosedXML.Excel;
 using DataAccessLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
-using OfficeOpenXml;
 using Traversal_Booking.Models;
 
 namespace Traversal_Booking.Controllers;
 
 public class ExcelController : Controller
 {
+    private readonly IExcelService _excelService;
+
+    public ExcelController(IExcelService excelService)
+    {
+        _excelService = excelService;
+    }
+
     public IActionResult Index()
     {
         return View();
@@ -33,27 +40,14 @@ public class ExcelController : Controller
 
     public IActionResult StaticExcelReport()
     {
+        return File(_excelService.ExcelList(DestinationLists()),
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "NewExcel.xlsx");
 
-        ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-        using (var excel = new ExcelPackage(new FileInfo("dosya1.xlsx")))
-        {
-            var workSheet = excel.Workbook.Worksheets.Add("Page1");
-            workSheet.Cells[1, 1].Value = "Route";
-            workSheet.Cells[1, 2].Value = "Guide";
-            workSheet.Cells[1, 3].Value = "Quota";
-            workSheet.Cells[2, 1].Value = "Paris";
-            workSheet.Cells[2, 2].Value = "Jamalia";
-            workSheet.Cells[2, 3].Value = "50";
-            excel.Save();
-
-            var bytes = excel.GetAsByteArray();
-
-            return File(bytes,
-                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                "dosya2.xlsx");
-        }
+        //  ,"dosya2.xlsx");
     }
+
 
     public IActionResult DestinationExcelReport()
     {
