@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Traversal_Booking.Areas.Admin.Controllers;
 
 [Area("Admin")]
+[Route("Admin/Guide")]
 public class GuideController : Controller
 {
     private readonly IGuideService _guideService;
@@ -14,12 +15,14 @@ public class GuideController : Controller
     {
         _guideService = guideService;
     }
-
+    [Route("")]
+    [Route("Index")]
     public IActionResult Index()
     {
         var values = _guideService.TGetList();
         return View(values);
     }
+    [Route("AddGuide")]
 
     [HttpGet]
     public IActionResult AddGuide()
@@ -27,6 +30,7 @@ public class GuideController : Controller
         return View();
     }
 
+    [Route("AddGuide")]
     [HttpPost]
     public IActionResult AddGuide(Guide guide)
     {
@@ -35,12 +39,17 @@ public class GuideController : Controller
         if (validationResult.IsValid)
         {
             _guideService.TAdd(guide);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), nameof(Guide), new
+            {
+                area = "Admin"
+            });
         }
 
         foreach (var item in validationResult.Errors) ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
         return View();
     }
+
+    [Route("EditGuide")]
 
     [HttpGet]
     public IActionResult EditGuide(int id)
@@ -49,15 +58,36 @@ public class GuideController : Controller
         return View(values);
     }
 
+    [Route("EditGuide")]
+
     [HttpPost]
     public IActionResult EditGuide(Guide guide)
     {
         _guideService.TUpdate(guide);
-        return RedirectToAction(nameof(Index));
+        return RedirectToAction(nameof(Index), nameof(Guide), new
+        {
+            area = "Admin"
+        });
     }
 
-    public IActionResult ChangeToStatuse(int id)
+    [Route("ChangeToTrue")]
+    [HttpPost]
+    public IActionResult ChangeToTrue(int id)
     {
-        return RedirectToAction(nameof(Index));
+        _guideService.TChangeToTrueByGuide(id);
+        return RedirectToAction(nameof(Index), nameof(Guide), new
+        {
+            area = "Admin"
+        });
+    }
+    [Route("ChangeToFalse")]
+    [HttpPost]
+    public IActionResult ChangeToFalse(int id)
+    {
+        _guideService.TChangeToFalseByGuide(id);
+        return RedirectToAction(nameof(Index), nameof(Guide), new
+        {
+            area = "Admin"
+        });
     }
 }

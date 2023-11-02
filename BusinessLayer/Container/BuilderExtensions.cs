@@ -13,14 +13,21 @@ public class BuilderExtensions
     {
         builder.Services.AddScoped<ICommentService, CommentManager>();
         builder.Services.AddScoped<ICommentDal, EfCommentDal>();
+
         builder.Services.AddScoped<IAppUserService, AppUserManager>();
         builder.Services.AddScoped<IAppUserDal, EfAppUserDal>();
+
         builder.Services.AddScoped<IDestinationService, DestinationManager>();
         builder.Services.AddScoped<IDestinationDal, EfDestinationDal>();
+
         builder.Services.AddScoped<IReservationService, ReservationManager>();
         builder.Services.AddScoped<IReservationDal, EfReservationDal>();
+
         builder.Services.AddScoped<IGuideService, GuideManager>();
         builder.Services.AddScoped<IGuideDal, EfGuideDal>();
+
         builder.Services.AddScoped<IExcelService, ExcelManager>();
+
+        builder.Services.AddScoped<IPdfService, IPdfManager>();
     }
 }

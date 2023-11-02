@@ -43,4 +43,14 @@ public class GuideManager : IGuideService
     {
         throw new NotImplementedException();
     }
+
+    public void TChangeToTrueByGuide(int id)
+    {
+        _guideDal.ChangeToTrueByGuide(id);
+    }
+
+    public void TChangeToFalseByGuide(int id)
+    {
+        _guideDal.ChangeToFalseByGuide(id);
+    }
 }
