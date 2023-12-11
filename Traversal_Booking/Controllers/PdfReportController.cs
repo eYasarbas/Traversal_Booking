@@ -1,4 +1,5 @@
-﻿using iTextSharp.text;
+﻿
+using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,7 +17,7 @@ public class PdfReportController : Controller
         var path = Path.Combine(Directory.GetCurrentDirectory(),
             "wwwroot/PdfReports/" + "dosya1.pdf");
         var stream = new FileStream(path, FileMode.Create);
-        var document = new Document(PageSize.A4);
+        Document document = new Document(PageSize.A4);
         PdfWriter.GetInstance(document, stream);
         document.Open();
         var paragraph = new Paragraph("Traversal Reservation Pdf Report");
@@ -29,7 +30,7 @@ public class PdfReportController : Controller
     public IActionResult StaticCustomerReport()
     {
         var path = Path.Combine(Directory.GetCurrentDirectory(),
-            "wwwroot/PdfReports/" + "dosya1.pdf");
+            "wwwroot/PdfReports/" + "dosya2.pdf");
         var stream = new FileStream(path, FileMode.Create);
         var document = new Document(PageSize.A4);
         PdfWriter.GetInstance(document, stream);
