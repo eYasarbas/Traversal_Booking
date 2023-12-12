@@ -53,4 +53,6 @@ public class GuideManager : IGuideService
     {
         _guideDal.ChangeToFalseByGuide(id);
     }
+
+    public async Task<Guide> GuidesstatuChangeToTrue(int id) => await _guideDal.GuidesstatuChangeToTrue(id);
 }

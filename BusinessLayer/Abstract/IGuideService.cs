@@ -6,5 +6,6 @@ namespace BusinessLayer.Abstract
     {
         void TChangeToTrueByGuide(int id);
         void TChangeToFalseByGuide(int id);
+        Task<Guide> GuidesstatuChangeToTrue(int id);
     }
 }

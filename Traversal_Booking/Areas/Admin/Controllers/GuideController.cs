@@ -7,6 +7,8 @@ namespace Traversal_Booking.Areas.Admin.Controllers;
 
 [Area("Admin")]
 [Route("Admin/Guide")]
+//[Route("Admin/[controller]/[action]")]
+//[Route("Admin/Guide/[action]/{id?}")]
 public class GuideController : Controller
 {
     private readonly IGuideService _guideService;
@@ -15,6 +17,7 @@ public class GuideController : Controller
     {
         _guideService = guideService;
     }
+
     [Route("")]
     [Route("Index")]
     public IActionResult Index()
@@ -22,8 +25,8 @@ public class GuideController : Controller
         var values = _guideService.TGetList();
         return View(values);
     }
-    [Route("AddGuide")]
 
+    [Route("AddGuide")]
     [HttpGet]
     public IActionResult AddGuide()
     {
@@ -50,7 +53,6 @@ public class GuideController : Controller
     }
 
     [Route("EditGuide")]
-
     [HttpGet]
     public IActionResult EditGuide(int id)
     {
@@ -59,7 +61,6 @@ public class GuideController : Controller
     }
 
     [Route("EditGuide")]
-
     [HttpPost]
     public IActionResult EditGuide(Guide guide)
     {
@@ -80,6 +81,17 @@ public class GuideController : Controller
             area = "Admin"
         });
     }
+
+    [Route("GuidesstatuChangeToTrue{id}")]
+    public async Task<IActionResult> GuidesstatuChangeToTrue(int id)
+    {
+        var model = await _guideService.GuidesstatuChangeToTrue(id);
+
+
+        return Redirect("/Admin/Guide/Index/");
+    }
+
+
     [Route("ChangeToFalse")]
     [HttpPost]
     public IActionResult ChangeToFalse(int id)

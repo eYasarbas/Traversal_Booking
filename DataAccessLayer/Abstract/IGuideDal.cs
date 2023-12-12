@@ -7,5 +7,7 @@ namespace DataAccessLayer.Abstract
         void ChangeToTrueByGuide(int id);
         void ChangeToFalseByGuide(int id);
 
+        Task<Guide> GuidesstatuChangeToTrue(int id);
+
     }
 }
