@@ -1,0 +1,27 @@
+﻿@model Traversal_Booking.Models.MailRequest
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>New Mail Send Page</h1>
+<form method="post">
+
+    <br/>
+    <div class="form-group">
+        @Html.Label("Receiver Mail Adresi")
+        <input type="text" asp-for="RecieverMail" class="form-control"/>
+    </div> <br/>
+    <div class="form-group">
+        @Html.Label("Subject")
+        <input type="text" asp-for="Subject" class="form-control"/>
+    </div> <br/>
+    <div class="form-group">
+        @Html.Label("Body")
+        <textarea cols="30" rows="5" asp-for="Body" class="form-control"></textarea>
+    </div> <br/>
+
+
+    <button class="btn btn-outline-success">Send Mail</button>
+
+</form>
