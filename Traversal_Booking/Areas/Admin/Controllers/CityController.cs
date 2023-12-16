@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Destination = EntityLayer.Concrete.Destination;
 
 namespace Traversal_Booking.Areas.Admin.Controllers;
 
@@ -24,5 +25,11 @@ public class CityController : Controller
     {
         var jsonCity = JsonConvert.SerializeObject(_destinationService.TGetList());
         return Json(jsonCity);
+    }
+
+    public IActionResult AddCityDestination(Destination destination)
+    {
+        _destinationService.TAdd(destination);
+        return Json(destination);
     }
 }
