@@ -29,5 +29,8 @@ public class BuilderExtensions
         builder.Services.AddScoped<IExcelService, ExcelManager>();
 
         builder.Services.AddScoped<IPdfService, IPdfManager>();
+
+        builder.Services.AddScoped<IContactUsService, ContactUsManager>();
+        builder.Services.AddScoped<IContactUsDal, EfContactUsDal>();
     }
 }
