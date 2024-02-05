@@ -35,9 +35,30 @@ public class CityController : Controller
         return Json(values);
     }
 
-    public IActionResult GetById(int id)
+    public IActionResult GetById(int DestinationID)
     {
-        var values = _destinationService.TGetById(id);
+        var values = _destinationService.TGetById(DestinationID);
         return Json(JsonConvert.SerializeObject(values));
     }
+
+    public IActionResult DeleteCity(int id)
+    {
+        var values = _destinationService.TGetById(id);
+        _destinationService.TDelete(values);
+        return NoContent();
+    }
+
+    public IActionResult UpdateCity(Destination destination)
+    {
+        _destinationService.TUpdate(destination);
+        var jsonValue = JsonConvert.SerializeObject(destination);
+        return Json(jsonValue);
+    }
 }
+
+
+
+
+
+
+
